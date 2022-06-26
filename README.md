@@ -19,3 +19,12 @@ kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/v1.1
 
 kubectl create secret tls loaded-ca-key-pair --cert=./server.crt --key=./temp-decrypted.key --namespace=default
 '''
+
+Lastly, for Nginx Ingress to work correctly: https://kubernetes.io/docs/tasks/access-application-cluster/ingress-minikube/
+'''
+minikube ip
+'''
+Add ip to /etc/hosts like:
+'''
+ip myservice.foo.org
+'''
