@@ -8,8 +8,10 @@ const start = async () => {
   }
 
   try {
-    await mongoose.connect('mongodb://auth-mongo-srv:27017/auth');
-    console.log('Connected to MongoDb');
+    setTimeout(async function() {
+      await mongoose.connect('mongodb://auth-mongo-srv:27017/auth');
+      console.log('Connected to MongoDb');
+    }, 50000);
   } catch (err) {
     console.error(err);
   }

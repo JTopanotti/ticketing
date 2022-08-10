@@ -7,7 +7,7 @@ metadata:
     #cert-manager.io/issuer: ca-cert-issuer
 spec:
   rules:
-  - host: myservice.foo.org
+  - host: ticketing.org
     http:
       paths:
       - path: /api/users/?(.*)

@@ -26,5 +26,5 @@ minikube ip
 '''
 Add ip to /etc/hosts like:
 '''
-ip myservice.foo.org
+ip ticketing.dev
 '''
