@@ -11,10 +11,12 @@ const start = async () => {
   }
 
   try {
-    setTimeout(async function() {
-      await mongoose.connect(process.env.MONGO_URI);
-      console.log('Connected to MongoDb');
-    }, 50000);
+    await mongoose.connect(process.env.MONGO_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useCreateIndex: true,
+    });
+    console.log('Connected to MongoDb');
   } catch (err) {
     console.error(err);
   }

@@ -1,14 +1,17 @@
 import express, { Request, Response } from 'express';
-import { requireAuth, validateRequest } from '@somethingorg/common';
-import { body } from 'express-validator';
+import { NotFoundError } from '@somethingorg/common';
 import { Ticket } from '../models/ticket';
 
 const router = express.Router();
 
-router.post('/api/tickets/:id', requireAuth,
-    async (req: Request, res: Response) => {
-    
-    
+router.get('/api/tickets/:id', async (req: Request, res: Response) => {
+  const ticket = await Ticket.findById(req.params.id);
+
+  if (!ticket) {
+    throw new NotFoundError();
+  }
+
+  res.send(ticket);
 });
 
 export { router as showTicketRouter };
